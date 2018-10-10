@@ -1,5 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
+import { Button } from 'antd';
+import Layout from '../layout';
 
-const Home = () => <h1>Hello, World!</h1>;
+const Home = () => (
+  <Layout>
+    <h1>Next vs Gatsby</h1>
+    <Button>
+      <Link to="/users">Users</Link>
+    </Button>
+  </Layout>
+);
 
 export default Home;
