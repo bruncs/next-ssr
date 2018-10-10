@@ -7,7 +7,7 @@ const Home = () => (
   <Layout>
     <h1>Next vs Gatsby</h1>
     <Button>
-      <Link to="/users">Users</Link>
+      <Link href="/users">Users</Link>
     </Button>
   </Layout>
 );
