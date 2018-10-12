@@ -1,13 +1,20 @@
 import React from 'react';
+import axios from 'axios';
 
-const Users = () => (
+const Users = ({ users }) => (
   <div>
     <ul>
-      <li>User 1</li>
-      <li>User 2</li>
-      <li>User 3</li>
+      {users.map(user => (
+        <li key={user.id}>{user.login}</li>
+      ))}
     </ul>
   </div>
 );
+
+Users.getInitialProps = async () => {
+  const response = await axios.get('https://api.github.com/orgs/zeit/members');
+
+  return { users: response.data };
+};
 
 export default Users;
