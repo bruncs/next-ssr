@@ -1,12 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import {
-  Layout, Button, Row, Col,
-} from 'antd';
+import { Button } from 'antd';
 import Stylesheet from '../layout';
-
-const { Header, Footer, Content } = Layout;
 
 const Home = () => (
   <div>

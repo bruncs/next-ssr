@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const Users = ({ users }) => (
@@ -10,6 +11,14 @@ const Users = ({ users }) => (
     </ul>
   </div>
 );
+
+Users.propTypes = {
+  users: PropTypes.shape(),
+};
+
+Users.defaultProps = {
+  users: {},
+};
 
 Users.getInitialProps = async () => {
   const response = await axios.get('https://api.github.com/orgs/zeit/members');
