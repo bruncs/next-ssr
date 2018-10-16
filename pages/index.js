@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { Button } from 'antd';
 import Stylesheet from '../layout';
 
+import withAnalytics from '../src/hocs/withAnalytics';
+
 const Home = () => (
   <div>
     <Head>
@@ -19,4 +21,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default withAnalytics()(Home);
