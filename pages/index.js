@@ -12,6 +12,7 @@ const Home = () => (
       <title>Next vs Gatsby · Home</title>
     </Head>
     <Stylesheet>
+      <img alt="" src="/static/nextjs-logo.png" />
       <Button>
         <Link href="./users">
           <a>Users</a>
