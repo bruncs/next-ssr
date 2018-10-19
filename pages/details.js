@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import withAnalytics from '../src/hocs/withAnalytics';
@@ -14,6 +15,14 @@ Details.getInitialProps = async () => {
   const response = await axios.get('https://api.github.com/users/bruncs');
 
   return { user: response.data };
+};
+
+Details.propTypes = {
+  user: PropTypes.shape(),
+};
+
+Details.defaultProps = {
+  user: {},
 };
 
 export default withAnalytics()(Details);
