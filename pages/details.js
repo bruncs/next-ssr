@@ -11,8 +11,8 @@ const Details = ({ user }) => (
   </div>
 );
 
-Details.getInitialProps = async () => {
-  const response = await axios.get('https://api.github.com/users/bruncs');
+Details.getInitialProps = async ({ query }) => {
+  const response = await axios.get(`https://api.github.com/users/${query.user}`);
 
   return { user: response.data };
 };

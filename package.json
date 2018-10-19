@@ -7,14 +7,15 @@
     "antd": "^3.10.0",
     "axios": "^0.18.0",
     "next": "^7.0.1",
+    "next-routes": "^1.4.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-ga": "^2.5.3"
   },
   "scripts": {
-    "dev": "next",
-    "start": "next start",
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "build": "next build"
   },
   "devDependencies": {
