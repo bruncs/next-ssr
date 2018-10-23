@@ -5,12 +5,12 @@ import axios from 'axios';
 
 import withAnalytics from '../src/hocs/withAnalytics';
 
-const Users = ({ users }) => (
+const Users = ({ users, org }) => (
   <div>
     <ul>
       {users.map(user => (
         <li key={user.id}>
-          <Link href={`/users/${user.login}`}>
+          <Link href={`/users/${org}/${user.login}`}>
             <a>{user.login}</a>
           </Link>
         </li>
@@ -21,16 +21,18 @@ const Users = ({ users }) => (
 
 Users.propTypes = {
   users: PropTypes.shape(),
+  org: PropTypes.string,
 };
 
 Users.defaultProps = {
   users: {},
+  org: '',
 };
 
-Users.getInitialProps = async () => {
-  const response = await axios.get('https://api.github.com/orgs/zeit/members');
+Users.getInitialProps = async ({ query }) => {
+  const response = await axios.get(`https://api.github.com/orgs/${query.org}/members`);
 
-  return { users: response.data };
+  return { users: response.data, org: query.org };
 };
 
 export default withAnalytics()(Users);
