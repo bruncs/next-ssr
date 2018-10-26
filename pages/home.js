@@ -12,23 +12,19 @@ class Home extends Component {
     org: '',
   };
 
-  handleChange = e => this.setState({ [e.target.name]: e.value.name });
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    const { org } = this.state;
     return (
       <div>
         <Head>
           <title>Next vs Gatsby · Home</title>
         </Head>
         <Stylesheet>
-          <Input
-            name="org"
-            placeholder="Organization"
-            onChange={this.handleChange}
-            value={this.state.org}
-          />
+          <Input name="org" placeholder="Organization" onChange={this.handleChange} value={org} />
           <Button>
-            <Link href={`./users/${this.state.org}`}>
+            <Link href={`./users/${org}`}>
               <a>Users</a>
             </Link>
           </Button>
