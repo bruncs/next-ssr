@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Head from 'next/head';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import Stylesheet from '../layout';
 
 import withAnalytics from '../src/hocs/withAnalytics';
 
-const Home = ({ org }) => (
-  <div>
-    <Head>
-      <title>Next vs Gatsby · Home</title>
-    </Head>
-    <Stylesheet>
-      <Button>
-        <Link href={`./users/${org}`}>
-          <a>Users</a>
-        </Link>
-      </Button>
-    </Stylesheet>
-  </div>
-);
+class Home extends Component {
+  state = {
+    org: '',
+  };
 
-Home.propTypes = {
-  org: PropTypes.string,
-};
+  handleChange = e => this.setState({ [e.target.name]: e.value.name });
 
-Home.defaultProps = {
-  org: 'zeit',
-};
+  render() {
+    return (
+      <div>
+        <Head>
+          <title>Next vs Gatsby · Home</title>
+        </Head>
+        <Stylesheet>
+          <Input
+            name="org"
+            placeholder="Organization"
+            onChange={this.handleChange}
+            value={this.state.org}
+          />
+          <Button>
+            <Link href={`./users/${this.state.org}`}>
+              <a>Users</a>
+            </Link>
+          </Button>
+        </Stylesheet>
+      </div>
+    );
+  }
+}
 
 export default withAnalytics()(Home);
