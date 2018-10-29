@@ -20,7 +20,7 @@ const Users = ({ users, org }) => (
 );
 
 Users.propTypes = {
-  users: PropTypes.shape(),
+  users: PropTypes.arrayOf(PropTypes.shape()),
   org: PropTypes.string,
 };
 
