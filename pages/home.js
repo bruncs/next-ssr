@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { Button, Input } from 'antd';
 import Stylesheet from '../layout';
 
-import withAnalytics from '../src/hocs/withAnalytics';
+import withAnalytics from '~/hocs/withAnalytics';
 
 class Home extends Component {
   state = {
